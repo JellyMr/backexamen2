@@ -1,11 +1,20 @@
 <?php
+header("Access-Control-Allow-Origin: https://cheery-marshmallow-7da01c.netlify.app");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
+header("Content-Type: application/json");
+
+// Verifica si la solicitud es de tipo OPTIONS (solicitud previa de CORS)
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    header("Access-Control-Allow-Origin: https://cheery-marshmallow-7da01c.netlify.app");
+    header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+    header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
+    http_response_code(200);
+    exit;
+}
+
 include_once 'controllers/ProductController.php';
 include_once 'controllers/SaleController.php';
-
-header("Content-Type: application/json");
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type");
 
 $requestUri = explode('/', trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/'));
 $method = $_SERVER['REQUEST_METHOD'];

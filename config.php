@@ -1,9 +1,9 @@
 <?php
 // config.php
-$host = 'sql312.infinityfree.com';
-$dbname = 'if0_37689774_bazar';
-$username = 'if0_37689774';
-$password = 'lvZ3qL2l7nSh2';
+$host = 'bmimupwfdoqyre4hevac-mysql.services.clever-cloud.com';
+$dbname = 'bmimupwfdoqyre4hevac';
+$username = 'uucxjcyiwmavxdqv';
+$password = 'ElqnDXicqp2HzNxLd0lb';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
